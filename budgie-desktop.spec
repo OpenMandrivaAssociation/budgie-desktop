@@ -18,6 +18,7 @@ Source0:        https://github.com/budgie-desktop/budgie-desktop/releases/downlo
 Patch1:		gnome-3.32.patch
 Patch2:		clang.patch
 BuildRequires:  gtk-doc
+BuildRequires:  cmake
 BuildRequires:  intltool
 BuildRequires:  meson >= 0.41.2
 BuildRequires:  vala >= 0.28
