@@ -1,0 +1,12 @@
+diff --git a/meson.build b/meson.build
+index f7881a1..9800637 100644
+--- a/meson.build
++++ b/meson.build
+@@ -18,7 +18,6 @@ am_cflags = [
+     '-pedantic',
+     '-Wstrict-prototypes',
+     '-Wundef',
+-    '-Werror-implicit-function-declaration',
+     '-Wformat',
+     '-Wformat-security',
+     '-Werror=format-security',
