@@ -15,8 +15,8 @@ License:        GPL-2.0+ AND LGPL-2.1
 Group:          System/GUI/Other
 Url:            https://solus-project.com/budgie/
 Source0:        https://github.com/budgie-desktop/budgie-desktop/releases/download/v%{version}/%{name}-%{version}.tar.xz
-Patch1:		gnome-3.32.patch
-Patch2:		clang.patch
+#Patch1:		gnome-3.32.patch
+#Patch2:		clang.patch
 BuildRequires:  gtk-doc
 BuildRequires:  cmake
 BuildRequires:  intltool
