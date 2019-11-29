@@ -44,6 +44,7 @@ BuildRequires:  pkgconfig(polkit-agent-1)
 BuildRequires:  pkgconfig(polkit-gobject-1)
 BuildRequires:  pkgconfig(upower-glib)
 BuildRequires:  pkgconfig(uuid)
+BuildRequires:  egl-devel
 
 %description
 Budgie Desktop is the flagship desktop for the Solus Operating System.
