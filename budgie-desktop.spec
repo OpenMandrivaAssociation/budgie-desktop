@@ -114,6 +114,8 @@ Shared library for budgie plugins to link against.
 %autosetup -p1
 
 %build
+export CC=gcc
+export CXX=g++
 %meson
 %meson_build
 
