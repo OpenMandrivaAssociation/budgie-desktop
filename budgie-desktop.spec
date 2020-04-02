@@ -54,6 +54,11 @@ Budgie Desktop is the flagship desktop for the Solus Operating System.
 %package -n	%{girname}
 Summary:        Introspection bindings for the Budgie Desktop
 Group:          System/Libraries
+Requires:       %{libraven} = %{EVRD}
+Requires:       %{libbudgieplugin} = %{EVRD}
+Requires:       %{libbudgieprivate} = %{EVRD}
+
+%description -n %{girname}
 This package provides GObject Introspection files required for
 developing Budgie Applets using interpreted languages, such as Python
 GObject Introspection bindings.
@@ -61,12 +66,7 @@ GObject Introspection bindings.
 %package -n	%{devname}
 Summary:        Development files for the Budgie Desktop
 Group:          Development/Libraries/GNOME
-Requires:       %{name} = %{version
-Requires:       %{libraven} = %{EVRD}
-Requires:       %{libbudgieplugin} = %{EVRD}
-Requires:       %{libbudgieprivate} = %{EVRD}
-
-%description -n %{girname}}-%{release}
+Requires:       %{name} = %{version}-%{release}
 Requires:       %{girname} = %{EVRD}
 Requires:       %{libraven} = %{EVRD}
 Requires:       %{libbudgieplugin} = %{EVRD}
