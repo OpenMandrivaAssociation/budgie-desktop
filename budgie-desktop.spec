@@ -18,6 +18,7 @@ Source0:        budgie-desktop-master-30032020.tar.xz
 #Source0:        https://github.com/budgie-desktop/budgie-desktop/releases/download/v%{version}/%{name}-%{version}.tar.xz
 #Patch1:		gnome-3.32.patch
 #Patch2:		clang.patch
+BuildRequires:  git
 BuildRequires:  gtk-doc
 BuildRequires:  cmake
 BuildRequires:  intltool
@@ -53,11 +54,6 @@ Budgie Desktop is the flagship desktop for the Solus Operating System.
 %package -n	%{girname}
 Summary:        Introspection bindings for the Budgie Desktop
 Group:          System/Libraries
-Requires:       %{libraven} = %{EVRD}
-Requires:       %{libbudgieplugin} = %{EVRD}
-Requires:       %{libbudgieprivate} = %{EVRD}
-
-%description -n %{girname}
 This package provides GObject Introspection files required for
 developing Budgie Applets using interpreted languages, such as Python
 GObject Introspection bindings.
@@ -65,7 +61,12 @@ GObject Introspection bindings.
 %package -n	%{devname}
 Summary:        Development files for the Budgie Desktop
 Group:          Development/Libraries/GNOME
-Requires:       %{name} = %{version}-%{release}
+Requires:       %{name} = %{version
+Requires:       %{libraven} = %{EVRD}
+Requires:       %{libbudgieplugin} = %{EVRD}
+Requires:       %{libbudgieprivate} = %{EVRD}
+
+%description -n %{girname}}-%{release}
 Requires:       %{girname} = %{EVRD}
 Requires:       %{libraven} = %{EVRD}
 Requires:       %{libbudgieplugin} = %{EVRD}
@@ -113,8 +114,7 @@ Group:          System/Libraries
 Shared library for budgie plugins to link against.
 
 %prep
-%setup -qn %{name}-master
-%autopatch -p1
+%autosetup -p1 -n %{name}-master
 
 %build
 #export CC=gcc
