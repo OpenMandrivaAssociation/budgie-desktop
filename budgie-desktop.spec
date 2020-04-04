@@ -14,7 +14,7 @@ Summary:        GTK3 Desktop Environment
 License:        GPL-2.0+ AND LGPL-2.1
 Group:          System/GUI/Other
 Url:            https://solus-project.com/budgie/
-Source0:        budgie-desktop-master-30032020.tar.xz
+Source0:        budgie-desktop-10.5.1-master-30032020.tar.xz
 #Source0:        https://github.com/budgie-desktop/budgie-desktop/releases/download/v%{version}/%{name}-%{version}.tar.xz
 #Patch1:		gnome-3.32.patch
 #Patch2:		clang.patch
@@ -114,7 +114,7 @@ Group:          System/Libraries
 Shared library for budgie plugins to link against.
 
 %prep
-%autosetup -p1 -n %{name}-master-30032020
+%autosetup -p1 -n %{name}-10.5.1-master-30032020
 
 %build
 #export CC=gcc
