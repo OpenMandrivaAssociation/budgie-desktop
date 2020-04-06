@@ -9,7 +9,7 @@
 
 Name:           budgie-desktop
 Version:        10.5.1
-Release:        2
+Release:        3
 Summary:        GTK3 Desktop Environment
 License:        GPL-2.0+ AND LGPL-2.1
 Group:          System/GUI/Other
@@ -117,8 +117,8 @@ Shared library for budgie plugins to link against.
 %autosetup -p1 -n %{name}-10.5.1-master-30032020
 
 %build
-#export CC=gcc
-#export CXX=g++
+export CC=gcc
+export CXX=g++
 %meson
 %meson_build
 
