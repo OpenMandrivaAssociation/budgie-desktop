@@ -113,7 +113,7 @@ Group:          System/Libraries
 Shared library for budgie plugins to link against.
 
 %prep
-%autosetup -p1 -n %{name}-10.5.1-master-30032020
+%autosetup -p1 -n %{name}-%{version}
 
 %build
 #export CC=gcc
