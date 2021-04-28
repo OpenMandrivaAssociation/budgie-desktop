@@ -8,13 +8,13 @@
 %define libbudgieprivate %mklibname budgie-private %{major} 
 
 Name:           budgie-desktop
-Version:        10.5.2
+Version:        10.5.3
 Release:        1
 Summary:        GTK3 Desktop Environment
 License:        GPL-2.0+ AND LGPL-2.1
 Group:          System/GUI/Other
 Url:            https://solus-project.com/budgie/
-Source0:        https://github.com/budgie-desktop/budgie-desktop/releases/download/v%{version}/%{name}-%{version}.tar.xz
+Source0:        https://github.com/budgie-desktop/budgie-desktop/releases/download/v%{version}/%{name}-v%{version}.tar.xz
 
 BuildRequires:  git
 BuildRequires:  gtk-doc
