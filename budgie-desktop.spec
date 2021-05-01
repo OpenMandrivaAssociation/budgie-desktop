@@ -127,9 +127,6 @@ Shared library for budgie plugins to link against.
 export LANG=en_US.UTF-8
 %meson_install
 
-# GNOME Screensaver missing in openSUSE
-#rm %{buildroot}/%{_sysconfdir}/xdg/autostart/budgie-desktop-screensaver.desktop
-
 %find_lang %{name}
 
 %files -f %{name}.lang
@@ -141,9 +138,11 @@ export LANG=en_US.UTF-8
 %{_datadir}/glib-2.0/schemas/com.solus-project.*.gschema.xml
 %{_datadir}/gnome-session/sessions/budgie-desktop.session
 %{_datadir}/icons/hicolor/scalable/*/*.svg
+%{_datadir}/backgrounds/budgie/default.jpg
 %{_datadir}/xsessions/budgie-desktop.desktop
 %{_libdir}/budgie-desktop/
 %{_sysconfdir}/xdg/autostart/budgie-desktop-nm-applet.desktop
+%{_sysconfdir}/xdg/autostart/budgie-desktop-screensaver.desktop
 
 %files -n %{libraven}
 %{_libdir}/libraven.so.*
