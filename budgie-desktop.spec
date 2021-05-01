@@ -45,6 +45,9 @@ BuildRequires:  pkgconfig(polkit-gobject-1)
 BuildRequires:  pkgconfig(upower-glib)
 BuildRequires:  pkgconfig(uuid)
 BuildRequires:  egl-devel
+BuildRequires:  budgie-screensaver
+
+Requires:  budgie-screensaver
 
 %description
 Budgie Desktop is the flagship desktop for the Solus Operating System.
@@ -125,7 +128,7 @@ export LANG=en_US.UTF-8
 %meson_install
 
 # GNOME Screensaver missing in openSUSE
-rm %{buildroot}/%{_sysconfdir}/xdg/autostart/budgie-desktop-screensaver.desktop
+#rm %{buildroot}/%{_sysconfdir}/xdg/autostart/budgie-desktop-screensaver.desktop
 
 %find_lang %{name}
 
