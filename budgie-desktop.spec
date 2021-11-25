@@ -9,12 +9,14 @@
 
 Name:           budgie-desktop
 Version:        10.5.3
-Release:        1
+Release:        2
 Summary:        GTK3 Desktop Environment
 License:        GPL-2.0+ AND LGPL-2.1
 Group:          System/GUI/Other
 Url:            https://solus-project.com/budgie/
 Source0:        https://github.com/budgie-desktop/budgie-desktop/releases/download/v%{version}/%{name}-v%{version}.tar.xz
+# Support for new mutter
+Patch0:         https://github.com/solus-project/budgie-desktop/commit/297d140f52b180cfc8f302371e6c287d8842ee4a.patch
 
 BuildRequires:  git
 BuildRequires:  gtk-doc
