@@ -12,7 +12,7 @@ Version:        10.6.1
 Release:        1
 Summary:        GTK3 Desktop Environment
 License:        GPL-2.0+ AND LGPL-2.1
-Group:          System/GUI/Other
+Group:          Graphical desktop/Budgie
 Url:            https://solus-project.com/budgie/
 Source0:        https://github.com/BuddiesOfBudgie/budgie-desktop/releases/download/v%{version}/budgie-desktop-v%{version}.tar.xz
 
