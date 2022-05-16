@@ -8,15 +8,13 @@
 %define libbudgieprivate %mklibname budgie-private %{major} 
 
 Name:           budgie-desktop
-Version:        10.5.3
-Release:        2
+Version:        10.6.1
+Release:        1
 Summary:        GTK3 Desktop Environment
 License:        GPL-2.0+ AND LGPL-2.1
 Group:          System/GUI/Other
 Url:            https://solus-project.com/budgie/
-Source0:        https://github.com/budgie-desktop/budgie-desktop/releases/download/v%{version}/%{name}-v%{version}.tar.xz
-# Support for new mutter
-Patch0:         https://github.com/solus-project/budgie-desktop/commit/297d140f52b180cfc8f302371e6c287d8842ee4a.patch
+Source0:        https://github.com/BuddiesOfBudgie/budgie-desktop/releases/download/v%{version}/budgie-desktop-v%{version}.tar.xz
 
 BuildRequires:  git
 BuildRequires:  gtk-doc
@@ -40,7 +38,7 @@ BuildRequires:  pkgconfig(libgnome-menu-3.0)
 BuildRequires:  pkgconfig(libpeas-gtk-1.0)
 BuildRequires:  pkgconfig(libpulse)
 BuildRequires:  pkgconfig(libwnck-3.0)
-BuildRequires:  mutter-devel
+BuildRequires:  pkgconfig(libmutter-10)
 BuildRequires:  sassc
 BuildRequires:  pkgconfig(polkit-agent-1)
 BuildRequires:  pkgconfig(polkit-gobject-1)
@@ -50,6 +48,7 @@ BuildRequires:  egl-devel
 BuildRequires:  budgie-screensaver
 
 Requires:  budgie-screensaver
+Requires:  gnome-session
 
 %description
 Budgie Desktop is the flagship desktop for the Solus Operating System.
