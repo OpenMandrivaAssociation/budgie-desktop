@@ -143,6 +143,7 @@ export LANG=en_US.UTF-8
 %dir %{_datadir}/gnome-session/sessions
 %{_bindir}/budgie-*
 %{_datadir}/applications/budgie-*.desktop
+%{_datadir}/budgie/budgie-version.xml
 %{_datadir}/glib-2.0/schemas/com.solus-project.*.gschema.xml
 %{_datadir}/gnome-session/sessions/budgie-desktop.session
 %{_datadir}/icons/hicolor/scalable/*/*.svg
@@ -178,3 +179,4 @@ export LANG=en_US.UTF-8
 
 %files docs
 %{_datadir}/gtk-doc/html/budgie-desktop/
+%{_mandir}/man1/budgie-*
