@@ -46,9 +46,16 @@ BuildRequires:  pkgconfig(upower-glib)
 BuildRequires:  pkgconfig(uuid)
 BuildRequires:  egl-devel
 BuildRequires:  budgie-screensaver
+BuildRequires:  budgie-desktop-view
 
-Requires:  budgie-screensaver
-Requires:  gnome-session
+Requires:       budgie-desktop-view
+Requires:       budgie-screensaver
+Requires:       budgie-control-center
+Requires:       gnome-bluetooth3.34
+Requires:       gnome-session
+
+Suggests:       materia-gtk-theme
+Suggests:       papirus-icon-theme
 
 %description
 Budgie Desktop is the flagship desktop for the Solus Operating System.
