@@ -8,7 +8,7 @@
 %define libbudgieprivate %mklibname budgie-private %{major} 
 
 Name:           budgie-desktop
-Version:        10.6.1
+Version:        10.6.2
 Release:        1
 Summary:        GTK3 Desktop Environment
 License:        GPL-2.0+ AND LGPL-2.1
