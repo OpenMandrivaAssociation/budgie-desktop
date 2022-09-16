@@ -47,7 +47,6 @@ BuildRequires:  pkgconfig(uuid)
 BuildRequires:  egl-devel
 BuildRequires:  budgie-screensaver
 BuildRequires:  budgie-desktop-view
-BuildRequires:	locales-extra-charsets
 
 Requires:       budgie-desktop-view
 Requires:       budgie-screensaver
@@ -127,8 +126,8 @@ Shared library for budgie plugins to link against.
 %autosetup -p1 -n %{name}-%{version}
 
 %build
-#export CC=gcc
-#export CXX=g++
+export CC=gcc
+export CXX=g++
 %meson
 %meson_build
 
