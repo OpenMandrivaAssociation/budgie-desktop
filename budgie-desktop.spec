@@ -7,7 +7,7 @@
 %define libbudgieplugin %mklibname budgie-plugin %{major} 
 %define libbudgieprivate %mklibname budgie-private %{major} 
 
-%global optflags %{optflags} -Wno-error
+%global optflags %{optflags} -Wno-error -Wno-implicit-function-declaration
 
 Name:           budgie-desktop
 Version:        10.6.4
