@@ -47,6 +47,7 @@ BuildRequires:  pkgconfig(uuid)
 BuildRequires:  egl-devel
 BuildRequires:  budgie-screensaver
 BuildRequires:  budgie-desktop-view
+BuildRequires:	locales-extra-charsets
 
 Requires:       budgie-desktop-view
 Requires:       budgie-screensaver
