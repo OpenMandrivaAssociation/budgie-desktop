@@ -7,6 +7,8 @@
 %define libbudgieplugin %mklibname budgie-plugin %{major} 
 %define libbudgieprivate %mklibname budgie-private %{major} 
 
+%global optflags %{optflags} -Wno-error
+
 Name:           budgie-desktop
 Version:        10.6.4
 Release:        1
@@ -126,8 +128,8 @@ Shared library for budgie plugins to link against.
 %autosetup -p1 -n %{name}-%{version}
 
 %build
-export CC=gcc
-export CXX=g++
+#export CC=gcc
+#export CXX=g++
 %meson
 %meson_build
 
