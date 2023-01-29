@@ -10,8 +10,8 @@
 %global optflags %{optflags} -Wno-error -Wno-implicit-function-declaration
 
 Name:           budgie-desktop
-Version:        10.6.4
-Release:        3
+Version:        10.7
+Release:        1
 Summary:        GTK3 Desktop Environment
 License:        GPL-2.0+ AND LGPL-2.1
 Group:          Graphical desktop/Budgie
