@@ -11,7 +11,7 @@
 
 Name:           budgie-desktop
 Version:        10.7
-Release:        1
+Release:        2
 Summary:        GTK3 Desktop Environment
 License:        GPL-2.0+ AND LGPL-2.1
 Group:          Graphical desktop/Budgie
@@ -54,6 +54,11 @@ BuildRequires:  egl-devel
 BuildRequires:  budgie-screensaver
 BuildRequires:  budgie-desktop-view
 
+Requires:       %{girname} = %{EVRD}
+Requires:       %{libraven} = %{EVRD}
+Requires:       %{libbudgieplugin} = %{EVRD}
+Requires:       %{libbudgieprivate} = %{EVRD}
+
 Requires:       budgie-desktop-view
 Requires:       budgie-screensaver
 Requires:       budgie-control-center
@@ -73,6 +78,10 @@ Recommends:     switcheroo-control
 Requires: glib2.0-common
 Requires: glib2
 Requires: gtk+3
+
+Provides: budgie
+Provides: task-budgie
+Provides: task-budgie-desktop
 
 %description
 Budgie Desktop is the flagship desktop for the Solus Operating System.
