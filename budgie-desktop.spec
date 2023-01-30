@@ -59,10 +59,20 @@ Requires:       budgie-screensaver
 Requires:       budgie-control-center
 Requires:       gnome-bluetooth3.34
 Requires:       gnome-session
+Requires:       gnome-settings-daemon
+Requires:       gsettings-desktop-schemas
+Requires:       gnome-keyring
+Requires:       networkmanager-applet
+
 Requires:       hicolor-icon-theme
 Requires:       materia-gtk-theme
 Requires:       papirus-icon-theme
-Recommends:       switcheroo-control
+Requires:       xdotool
+Recommends:     switcheroo-control
+
+Requires: glib2.0-common
+Requires: glib2
+Requires: gtk+3
 
 %description
 Budgie Desktop is the flagship desktop for the Solus Operating System.
@@ -149,19 +159,29 @@ export LANG=en_US.UTF-8
 %dir %{_datadir}/gnome-session
 #dir %{_datadir}/gnome-session/sessions
 %{_bindir}/budgie-*
-#{_datadir}/applications/budgie-*.desktop
+%{_bindir}/org.buddiesofbudgie.BudgieScreenshot
+%{_datadir}/applications/org.buddiesofbudgie.*
 %{_datadir}/budgie/budgie-version.xml
 %{_datadir}/glib-2.0/schemas/com.solus-project.*.gschema.xml
-#{_datadir}/gnome-session/sessions/budgie-desktop.session
+%{_datadir}/gnome-session/sessions/org.buddiesofbudgie.BudgieDesktop.session
 %{_datadir}/icons/hicolor/scalable/*/*.svg
 %{_datadir}/backgrounds/budgie/default.jpg
 %{_datadir}/xsessions/budgie-desktop.desktop
 %{_libdir}/budgie-desktop/
-#{_sysconfdir}/xdg/autostart/budgie-desktop-nm-applet.desktop
-#{_sysconfdir}/xdg/autostart/budgie-desktop-screensaver.desktop
+%{_sysconfdir}/xdg/autostart/org.buddiesofbudgie.BudgieDesktopNmApplet.desktop
+%{_sysconfdir}/xdg/autostart/org.buddiesofbudgie.BudgieDesktopScreensaver.desktop
+%{_sysconfdir}/xdg/autostart/org.buddiesofbudgie.BudgiePowerDialog.desktop
+%{_datadir}/glib-2.0/schemas/20_solus-project.budgie.wm.gschema.override
+%{_datadir}/glib-2.0/schemas/20_buddiesofbudgie.budgie-desktop.notifications.gschema.override
+%{_datadir}/glib-2.0/schemas/org.buddiesofbudgie.*
+%{_libexecdir}/budgie-desktop/budgie-polkit-dialog
+%{_libexecdir}/budgie-desktop/budgie-power-dialog
+
 
 %files -n %{libraven}
 %{_libdir}/libraven.so.*
+%{_libdir}/libbudgie-raven-plugin.so.*
+%{_libdir}/libbudgie-appindexer.so.*
 
 %files -n %{libbudgietheme}
 %{_libdir}/libbudgietheme.so.*
@@ -178,12 +198,16 @@ export LANG=en_US.UTF-8
 %{_libdir}/pkgconfig/*.pc
 %{_libdir}/*.so
 %{_datadir}/vala/vapi/budgie-1.0.*
+%{_datadir}/vala/vapi/budgie-raven-plugin-1.0.deps
+%{_datadir}/vala/vapi/budgie-raven-plugin-1.0.vapi
 
 %files -n %{girname}
+%{_libdir}/girepository-1.0/BudgieRaven-1.0.typelib
 %{_libdir}/girepository-1.0/Budgie-1.0.typelib
 %{_datadir}/gir-1.0/Budgie-1.0.gir
-%{_datadir}/glib-2.0/schemas/20_solus-project.budgie.wm.gschema.override
+%{_datadir}/gir-1.0/BudgieRaven-1.0.gir
 
 %files docs
 %{_datadir}/gtk-doc/html/budgie-desktop/
 %{_mandir}/man1/budgie-*
+%{_mandir}/man1/org.buddiesofbudgie.BudgieScreenshot.1.*
