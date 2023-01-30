@@ -147,9 +147,9 @@ export LANG=en_US.UTF-8
 %files -f %{name}.lang
 %doc LICENSE LICENSE.LGPL2.1
 %dir %{_datadir}/gnome-session
-%dir %{_datadir}/gnome-session/sessions
+#dir %{_datadir}/gnome-session/sessions
 %{_bindir}/budgie-*
-%{_datadir}/applications/budgie-*.desktop
+#{_datadir}/applications/budgie-*.desktop
 %{_datadir}/budgie/budgie-version.xml
 %{_datadir}/glib-2.0/schemas/com.solus-project.*.gschema.xml
 %{_datadir}/gnome-session/sessions/budgie-desktop.session
@@ -157,8 +157,8 @@ export LANG=en_US.UTF-8
 %{_datadir}/backgrounds/budgie/default.jpg
 %{_datadir}/xsessions/budgie-desktop.desktop
 %{_libdir}/budgie-desktop/
-%{_sysconfdir}/xdg/autostart/budgie-desktop-nm-applet.desktop
-%{_sysconfdir}/xdg/autostart/budgie-desktop-screensaver.desktop
+#{_sysconfdir}/xdg/autostart/budgie-desktop-nm-applet.desktop
+#{_sysconfdir}/xdg/autostart/budgie-desktop-screensaver.desktop
 
 %files -n %{libraven}
 %{_libdir}/libraven.so.*
