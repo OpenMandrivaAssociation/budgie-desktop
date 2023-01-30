@@ -30,12 +30,15 @@ BuildRequires:  pkgconfig(libnotify)
 BuildRequires:  pkgconfig(accountsservice)
 BuildRequires:  pkgconfig(gio-2.0)
 BuildRequires:  pkgconfig(gio-unix-2.0)
+BuildRequires:  pkgconfig(gee-0.8)
 BuildRequires:  pkgconfig(gnome-bluetooth-1.0)
 BuildRequires:  pkgconfig(gnome-desktop-3.0)
 BuildRequires:  pkgconfig(gobject-2.0)
 BuildRequires:  pkgconfig(gobject-introspection-1.0)
+BuildRequires:  pkgconfig(gstreamer-1.0)
 BuildRequires:  pkgconfig(gtk+-3.0)
 BuildRequires:  pkgconfig(ibus-1.0)
+BuildRequires:  pkgconfig(libcanberra)
 BuildRequires:  pkgconfig(libgnome-menu-3.0)
 BuildRequires:  pkgconfig(libpeas-gtk-1.0)
 BuildRequires:  pkgconfig(libpulse)
@@ -55,9 +58,10 @@ Requires:       budgie-screensaver
 Requires:       budgie-control-center
 Requires:       gnome-bluetooth3.34
 Requires:       gnome-session
-
-Suggests:       materia-gtk-theme
-Suggests:       papirus-icon-theme
+Requires:       hicolor-icon-theme
+Requires:       materia-gtk-theme
+Requires:       papirus-icon-theme
+Recommends:       switcheroo-control
 
 %description
 Budgie Desktop is the flagship desktop for the Solus Operating System.
