@@ -11,7 +11,7 @@
 
 Name:           budgie-desktop
 Version:        10.7
-Release:        2
+Release:        3
 Summary:        GTK3 Desktop Environment
 License:        GPL-2.0+ AND LGPL-2.1
 Group:          Graphical desktop/Budgie
@@ -62,18 +62,20 @@ Requires:       %{libbudgieprivate} = %{EVRD}
 Requires:       budgie-desktop-view
 Requires:       budgie-screensaver
 Requires:       budgie-control-center
+Requires:       budgie-backgrounds
 Requires:       gnome-bluetooth3.34
 Requires:       gnome-session
 Requires:       gnome-settings-daemon
 Requires:       gsettings-desktop-schemas
 Requires:       gnome-keyring
+Requires:       mutter
 Requires:       networkmanager-applet
-
 Requires:       hicolor-icon-theme
 Requires:       materia-gtk-theme
 Requires:       papirus-icon-theme
 Requires:       xdotool
 Recommends:     switcheroo-control
+Recommends:     gnome-terminal
 
 Requires: glib2.0-common
 Requires: glib2
