@@ -8,6 +8,7 @@
 %define libbudgieprivate %mklibname budgie-private %{major} 
 
 %global optflags %{optflags} -Wno-error -Wno-implicit-function-declaration
+%global optflags %{optflags} -Wno-incompatible-function-pointer-types
 
 Name:           budgie-desktop
 Version:        10.7.1
