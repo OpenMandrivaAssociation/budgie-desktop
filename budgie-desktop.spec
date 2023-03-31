@@ -12,7 +12,7 @@
 
 Name:           budgie-desktop
 Version:        10.7.1
-Release:        2
+Release:        3
 Summary:        GTK3 Desktop Environment
 License:        GPL-2.0+ AND LGPL-2.1
 Group:          Graphical desktop/Budgie
