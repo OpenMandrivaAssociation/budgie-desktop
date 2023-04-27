@@ -25,6 +25,7 @@ BuildRequires:  cmake
 BuildRequires:  intltool
 BuildRequires:  meson >= 0.41.2
 BuildRequires:  vala-devel
+BuildRequires:  zenity-gtk
 BuildRequires:  pkgconfig(alsa)
 BuildRequires:  gnome-settings-daemon-devel
 BuildRequires:  pkgconfig(libnotify)
