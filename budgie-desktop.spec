@@ -11,7 +11,7 @@
 %global optflags %{optflags} -Wno-incompatible-function-pointer-types
 
 Name:           budgie-desktop
-Version:        10.8
+Version:        10.8.1
 Release:        1
 Summary:        GTK3 Desktop Environment
 License:        GPL-2.0+ AND LGPL-2.1
@@ -46,7 +46,9 @@ BuildRequires:  pkgconfig(libgnome-menu-3.0)
 BuildRequires:  pkgconfig(libpeas-gtk-1.0)
 BuildRequires:  pkgconfig(libpulse)
 BuildRequires:  pkgconfig(libwnck-3.0)
-BuildRequires:  pkgconfig(libmutter-12)
+# Mutter was replaced by magpie
+#BuildRequires:  pkgconfig(libmutter-12)
+BuildRequires:  pkgconfig(libmagpie-0)
 BuildRequires:  sassc
 BuildRequires:  pkgconfig(polkit-agent-1)
 BuildRequires:  pkgconfig(polkit-gobject-1)
