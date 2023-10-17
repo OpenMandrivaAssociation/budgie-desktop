@@ -182,6 +182,7 @@ export LANG=en_US.UTF-8
 %{_datadir}/icons/hicolor/scalable/*/*.svg
 %{_datadir}/backgrounds/budgie/default.jpg
 %{_datadir}/xsessions/budgie-desktop.desktop
+%{_datadir}/xdg-desktop-portal/budgie-portals.conf
 %{_libdir}/budgie-desktop/
 %{_sysconfdir}/xdg/autostart/org.buddiesofbudgie.BudgieDesktopNmApplet.desktop
 %{_sysconfdir}/xdg/autostart/org.buddiesofbudgie.BudgieDesktopScreensaver.desktop
