@@ -46,6 +46,7 @@ BuildRequires:  pkgconfig(libgnome-menu-3.0)
 BuildRequires:  pkgconfig(libpeas-gtk-1.0)
 BuildRequires:  pkgconfig(libpulse)
 BuildRequires:  pkgconfig(libwnck-3.0)
+BuildRequires:  pkgconfig(libxfce4windowing-0)
 # Mutter was replaced by magpie
 #BuildRequires:  pkgconfig(libmutter-12)
 BuildRequires:  pkgconfig(libmagpie-0)
