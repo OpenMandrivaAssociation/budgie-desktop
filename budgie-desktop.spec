@@ -177,6 +177,7 @@ export LANG=en_US.UTF-8
 #dir %{_datadir}/gnome-session/sessions
 %{_bindir}/budgie-*
 %{_bindir}/org.buddiesofbudgie.BudgieScreenshot
+%{_bindir}/org.buddiesofbudgie.sendto
 %{_datadir}/applications/org.buddiesofbudgie.*
 %{_datadir}/budgie/budgie-version.xml
 %{_datadir}/glib-2.0/schemas/com.solus-project.*.gschema.xml
@@ -189,6 +190,7 @@ export LANG=en_US.UTF-8
 %{_sysconfdir}/xdg/autostart/org.buddiesofbudgie.BudgieDesktopNmApplet.desktop
 %{_sysconfdir}/xdg/autostart/org.buddiesofbudgie.BudgieDesktopScreensaver.desktop
 %{_sysconfdir}/xdg/autostart/org.buddiesofbudgie.BudgiePowerDialog.desktop
+%{_sysconfdir}/xdg/autostart/org.buddiesofbudgie.sendto-daemon.desktop
 %{_datadir}/glib-2.0/schemas/20_solus-project.budgie.wm.gschema.override
 %{_datadir}/glib-2.0/schemas/20_buddiesofbudgie.budgie-desktop.notifications.gschema.override
 %{_datadir}/glib-2.0/schemas/org.buddiesofbudgie.*
