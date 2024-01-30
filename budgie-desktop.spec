@@ -11,7 +11,7 @@
 %global optflags %{optflags} -Wno-incompatible-function-pointer-types
 
 Name:           budgie-desktop
-Version:        10.8.2
+Version:        10.9
 Release:        1
 Summary:        GTK3 Desktop Environment
 License:        GPL-2.0+ AND LGPL-2.1
@@ -46,6 +46,7 @@ BuildRequires:  pkgconfig(libgnome-menu-3.0)
 BuildRequires:  pkgconfig(libpeas-gtk-1.0)
 BuildRequires:  pkgconfig(libpulse)
 BuildRequires:  pkgconfig(libwnck-3.0)
+BuildRequires:  pkgconfig(libxfce4windowing-0)
 # Mutter was replaced by magpie
 #BuildRequires:  pkgconfig(libmutter-12)
 BuildRequires:  pkgconfig(libmagpie-0)
@@ -63,12 +64,12 @@ Requires:       %{libraven} = %{EVRD}
 Requires:       %{libbudgieplugin} = %{EVRD}
 Requires:       %{libbudgieprivate} = %{EVRD}
 
+Requires:       budgie-session
 Requires:       budgie-desktop-view
 Requires:       budgie-screensaver
 Requires:       budgie-control-center
 Requires:       budgie-backgrounds
 Requires:       gnome-bluetooth3.34
-Requires:       gnome-session
 Requires:       gnome-settings-daemon
 Requires:       gsettings-desktop-schemas
 Requires:       gnome-keyring
@@ -78,6 +79,7 @@ Requires:       hicolor-icon-theme
 Requires:       materia-gtk-theme
 Requires:       papirus-icon-theme
 Requires:       xdotool
+Requires:       %{_lib}xfce4windowing
 Recommends:     switcheroo-control
 Recommends:     gnome-terminal
 
@@ -175,6 +177,7 @@ export LANG=en_US.UTF-8
 #dir %{_datadir}/gnome-session/sessions
 %{_bindir}/budgie-*
 %{_bindir}/org.buddiesofbudgie.BudgieScreenshot
+%{_bindir}/org.buddiesofbudgie.sendto
 %{_datadir}/applications/org.buddiesofbudgie.*
 %{_datadir}/budgie/budgie-version.xml
 %{_datadir}/glib-2.0/schemas/com.solus-project.*.gschema.xml
@@ -187,6 +190,7 @@ export LANG=en_US.UTF-8
 %{_sysconfdir}/xdg/autostart/org.buddiesofbudgie.BudgieDesktopNmApplet.desktop
 %{_sysconfdir}/xdg/autostart/org.buddiesofbudgie.BudgieDesktopScreensaver.desktop
 %{_sysconfdir}/xdg/autostart/org.buddiesofbudgie.BudgiePowerDialog.desktop
+%{_sysconfdir}/xdg/autostart/org.buddiesofbudgie.sendto-daemon.desktop
 %{_datadir}/glib-2.0/schemas/20_solus-project.budgie.wm.gschema.override
 %{_datadir}/glib-2.0/schemas/20_buddiesofbudgie.budgie-desktop.notifications.gschema.override
 %{_datadir}/glib-2.0/schemas/org.buddiesofbudgie.*
