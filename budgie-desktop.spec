@@ -11,7 +11,7 @@
 %global optflags %{optflags} -Wno-incompatible-function-pointer-types
 
 Name:           budgie-desktop
-Version:        10.8.2
+Version:        10.9
 Release:        1
 Summary:        GTK3 Desktop Environment
 License:        GPL-2.0+ AND LGPL-2.1
@@ -63,12 +63,12 @@ Requires:       %{libraven} = %{EVRD}
 Requires:       %{libbudgieplugin} = %{EVRD}
 Requires:       %{libbudgieprivate} = %{EVRD}
 
+Requires:       budgie-session
 Requires:       budgie-desktop-view
 Requires:       budgie-screensaver
 Requires:       budgie-control-center
 Requires:       budgie-backgrounds
 Requires:       gnome-bluetooth3.34
-Requires:       gnome-session
 Requires:       gnome-settings-daemon
 Requires:       gsettings-desktop-schemas
 Requires:       gnome-keyring
@@ -78,6 +78,7 @@ Requires:       hicolor-icon-theme
 Requires:       materia-gtk-theme
 Requires:       papirus-icon-theme
 Requires:       xdotool
+Requires:       %{_lib}xfce4windowing
 Recommends:     switcheroo-control
 Recommends:     gnome-terminal
 
