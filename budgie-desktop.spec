@@ -18,6 +18,8 @@ License:        GPL-2.0+ AND LGPL-2.1
 Group:          Graphical desktop/Budgie
 Url:            https://solus-project.com/budgie/
 Source0:        https://github.com/BuddiesOfBudgie/budgie-desktop/releases/download/v%{version}/budgie-desktop-v%{version}.tar.xz
+# FIXME: move this to distro-release
+Source100:		budgie-openmandriva.gschema.override
 
 BuildRequires:  git
 BuildRequires:  gtk-doc
@@ -168,6 +170,9 @@ Shared library for budgie plugins to link against.
 export LANG=en_US.UTF-8
 %meson_install
 
+# OpenMandriva style
+install -pm 0644 %{SOURCE100} %{buildroot}%{_datadir}/glib-2.0/schemas/budgie-openmandriva.gschema.override
+
 %find_lang %{name}
 
 %files -f %{name}.lang
@@ -195,7 +200,7 @@ export LANG=en_US.UTF-8
 %{_datadir}/glib-2.0/schemas/org.buddiesofbudgie.*
 %{_libexecdir}/budgie-desktop/budgie-polkit-dialog
 %{_libexecdir}/budgie-desktop/budgie-power-dialog
-
+%{_datadir}/glib-2.0/schemas/budgie-openmandriva.gschema.override
 
 %files -n %{libraven}
 %{_libdir}/libraven.so.*
