@@ -230,3 +230,4 @@ export LANG=en_US.UTF-8
 %{_datadir}/gtk-doc/html/budgie-desktop/
 %{_mandir}/man1/budgie-*
 %{_mandir}/man1/org.buddiesofbudgie.BudgieScreenshot.1.*
+%{_mandir}/man1/org.buddiesofbudgie.sendto.1.*
