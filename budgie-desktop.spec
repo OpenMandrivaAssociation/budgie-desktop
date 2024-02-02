@@ -11,7 +11,7 @@
 %global optflags %{optflags} -Wno-incompatible-function-pointer-types
 
 Name:           budgie-desktop
-Version:        10.9
+Version:        10.9.1
 Release:        1
 Summary:        GTK3 Desktop Environment
 License:        GPL-2.0+ AND LGPL-2.1
@@ -73,7 +73,6 @@ Requires:       gnome-bluetooth3.34
 Requires:       gnome-settings-daemon
 Requires:       gsettings-desktop-schemas
 Requires:       gnome-keyring
-Requires:       mutter
 Requires:       networkmanager-applet
 Requires:       hicolor-icon-theme
 Requires:       materia-gtk-theme
