@@ -11,8 +11,8 @@
 %global optflags %{optflags} -Wno-incompatible-function-pointer-types
 
 Name:           budgie-desktop
-Version:        10.9.1
-Release:        2
+Version:        10.9.2
+Release:        1
 Summary:        GTK3 Desktop Environment
 License:        GPL-2.0+ AND LGPL-2.1
 Group:          Graphical desktop/Budgie
