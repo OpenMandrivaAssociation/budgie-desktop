@@ -4,3 +4,10 @@ picture-uri = 'file:///usr/share/backgrounds/omv-budgie-wall.png'
 [org.gnome.desktop.screensaver:Budgie]
 picture-uri = 'file:///usr/share/backgrounds/omv-budgie-wall.png'
 
+[com.solus-project.budgie-menu]
+menu-icon='/usr/share/icons/hicolor/scalable/apps/openmandriva.svg'
+
+[org.gnome.desktop.interface:Budgie]
+color-scheme='prefer-dark'
+gtk-theme='Materia-dark'
+icon-theme='Papirus'
