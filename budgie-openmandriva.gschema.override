@@ -1,8 +1,8 @@
 [org.gnome.desktop.background:Budgie]
-picture-uri = 'file:///usr/share/backgrounds/omv-budgie-wall.png'
+picture-uri = 'file:///usr/share/backgrounds/budgie/omv-budgie-wall.png'
 
 [org.gnome.desktop.screensaver:Budgie]
-picture-uri = 'file:///usr/share/backgrounds/omv-budgie-wall.png'
+picture-uri = 'file:///usr/share/backgrounds/budgie/omv-budgie-wall.png'
 
 [com.solus-project.budgie-menu]
 menu-icon='/usr/share/icons/hicolor/scalable/apps/openmandriva.svg'
