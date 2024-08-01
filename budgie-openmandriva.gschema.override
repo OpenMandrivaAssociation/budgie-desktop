@@ -1,6 +1,5 @@
 [org.gnome.desktop.background:Budgie]
 picture-uri = 'file:///usr/share/backgrounds/budgie/omv-budgie-wall.png'
-show-desktop-icons=true
 
 [org.gnome.desktop.screensaver:Budgie]
 picture-uri = 'file:///usr/share/backgrounds/budgie/omv-budgie-wall.png'
@@ -12,3 +11,6 @@ menu-icon='/usr/share/icons/hicolor/scalable/apps/openmandriva.svg'
 color-scheme='prefer-dark'
 gtk-theme='Materia-dark'
 icon-theme='Papirus'
+
+[org.buddiesofbudgie.budgie-desktop-view]
+show-desktop-icons=true
