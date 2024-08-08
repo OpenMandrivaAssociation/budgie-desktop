@@ -13,4 +13,7 @@ gtk-theme='Materia-dark'
 icon-theme='Papirus'
 
 [org.buddiesofbudgie.budgie-desktop-view]
-show-desktop-icons=true
+show=true
+show-home-folder=true
+show-trash-folder=true
+show-active-mounts=true
