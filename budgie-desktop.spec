@@ -23,6 +23,8 @@ Source100:		budgie-openmandriva.gschema.override
 
 #fix build with new vala
 Patch0:      https://patch-diff.githubusercontent.com/raw/BuddiesOfBudgie/budgie-desktop/pull/680.patch
+# fix for new libxfcewindowing
+Patch1:      https://patch-diff.githubusercontent.com/raw/BuddiesOfBudgie/budgie-desktop/pull/627.patch
 
 BuildRequires:  git
 BuildRequires:  gtk-doc
