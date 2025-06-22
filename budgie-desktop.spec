@@ -21,6 +21,9 @@ Source0:        https://github.com/BuddiesOfBudgie/budgie-desktop/releases/downl
 # FIXME: move this to distro-release
 Source100:		budgie-openmandriva.gschema.override
 
+#fix build with new vala
+Patch0:      https://patch-diff.githubusercontent.com/raw/BuddiesOfBudgie/budgie-desktop/pull/680.patch
+
 BuildRequires:  git
 BuildRequires:  gtk-doc
 BuildRequires:  cmake
@@ -81,6 +84,8 @@ Requires:       materia-gtk-theme
 Requires:       papirus-icon-theme
 Requires:       xdotool
 Requires:       %{_lib}xfce4windowing
+Requires:       %{_lib}peas-gtk-gir1.0
+
 Recommends:     switcheroo-control
 Recommends:     gnome-terminal
 
