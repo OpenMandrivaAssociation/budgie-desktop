@@ -31,6 +31,7 @@ BuildRequires:  zenity-gtk
 BuildRequires:  pkgconfig(alsa)
 BuildRequires:  gnome-settings-daemon-devel
 BuildRequires:  pkgconfig(libnotify)
+BuildRequires:  pkgconfig(libwacom)
 BuildRequires:  pkgconfig(accountsservice)
 BuildRequires:  pkgconfig(gio-2.0)
 BuildRequires:  pkgconfig(gio-unix-2.0)
