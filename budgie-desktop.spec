@@ -199,12 +199,16 @@ install -pm 0644 %{SOURCE100} %{buildroot}%{_datadir}/glib-2.0/schemas/budgie-op
 %{_sysconfdir}/xdg/autostart/org.buddiesofbudgie.BudgieDesktopScreensaver.desktop
 %{_sysconfdir}/xdg/autostart/org.buddiesofbudgie.BudgiePowerDialog.desktop
 %{_sysconfdir}/xdg/autostart/org.buddiesofbudgie.sendto-daemon.desktop
+%{_sysconfdir}/xdg/autostart/org.buddiesofbudgie.SettingsDaemon.*
 %{_datadir}/glib-2.0/schemas/20_solus-project.budgie.wm.gschema.override
 %{_datadir}/glib-2.0/schemas/20_buddiesofbudgie.budgie-desktop.notifications.gschema.override
 %{_datadir}/glib-2.0/schemas/org.buddiesofbudgie.*
 %{_libexecdir}/budgie-desktop/budgie-polkit-dialog
 %{_libexecdir}/budgie-desktop/budgie-power-dialog
+%{_libexecdir}/bsd-*
 %{_datadir}/glib-2.0/schemas/budgie-openmandriva.gschema.override
+%{_datadir}/polkit-1/actions/org.buddiesofbudgie.settings-daemon.plugins.power.policy
+%{_datadir}/polkit-1/actions/org.buddiesofbudgie.settings-daemon.plugins.wacom.policy
 
 %files -n %{libraven}
 %{_libdir}/libraven.so.*
@@ -223,6 +227,7 @@ install -pm 0644 %{SOURCE100} %{buildroot}%{_datadir}/glib-2.0/schemas/budgie-op
 %files -n %{devname}
 %dir %{_includedir}/budgie-desktop
 %{_includedir}/budgie-desktop/*.h
+%{_includedir}/budgie-settings-daemon-48/budgie-settings-daemon/gsd-enums.h
 %{_libdir}/pkgconfig/*.pc
 %{_libdir}/*.so
 %{_datadir}/vala/vapi/budgie-1.0.*
