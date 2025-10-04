@@ -11,8 +11,8 @@
 %global optflags %{optflags} -Wno-incompatible-function-pointer-types
 
 Name:           budgie-desktop
-Version:        10.9.2
-Release:        8
+Version:        10.9.3
+Release:        1
 Summary:        GTK3 Desktop Environment
 License:        GPL-2.0+ AND LGPL-2.1
 Group:          Graphical desktop/Budgie
@@ -20,11 +20,6 @@ Url:            https://solus-project.com/budgie/
 Source0:        https://github.com/BuddiesOfBudgie/budgie-desktop/releases/download/v%{version}/budgie-desktop-v%{version}.tar.xz
 # FIXME: move this to distro-release
 Source100:		budgie-openmandriva.gschema.override
-
-#fix build with new vala
-Patch0:      https://patch-diff.githubusercontent.com/raw/BuddiesOfBudgie/budgie-desktop/pull/680.patch
-# fix for new libxfcewindowing
-Patch1:      https://patch-diff.githubusercontent.com/raw/BuddiesOfBudgie/budgie-desktop/pull/627.patch
 
 BuildRequires:  git
 BuildRequires:  gtk-doc
