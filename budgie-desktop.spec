@@ -233,9 +233,9 @@ install -pm 0644 %{SOURCE100} %{buildroot}%{_datadir}/glib-2.0/schemas/budgie-op
 %{_includedir}/budgie-settings-daemon-48/budgie-settings-daemon/gsd-enums.h
 %{_libdir}/pkgconfig/*.pc
 %{_libdir}/*.so
-%{_datadir}/vala/vapi/budgie-1.0.*
-%{_datadir}/vala/vapi/budgie-raven-plugin-1.0.deps
-%{_datadir}/vala/vapi/budgie-raven-plugin-1.0.vapi
+%{_datadir}/vala/vapi/budgie-2.0.*
+%{_datadir}/vala/vapi/budgie-raven-plugin-2.0.deps
+%{_datadir}/vala/vapi/budgie-raven-plugin-2.0.vapi
 
 %files -n %{girname}
 %{_libdir}/girepository-1.0/BudgieRaven-2.0.typelib
