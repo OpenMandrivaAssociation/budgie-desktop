@@ -11,7 +11,7 @@
 %global optflags %{optflags} -Wno-incompatible-function-pointer-types
 
 Name:           budgie-desktop
-Version:        10.9.3
+Version:        10.9.4
 Release:        1
 Summary:        GTK3 Desktop Environment
 License:        GPL-2.0+ AND LGPL-2.1
@@ -30,9 +30,11 @@ BuildRequires:  vala-devel
 BuildRequires:  zenity-gtk
 BuildRequires:  pkgconfig(alsa)
 BuildRequires:  gnome-settings-daemon-devel
+BuildRequires:  pkgconfig(harfbuzz-gobject)
 BuildRequires:  pkgconfig(libnotify)
 BuildRequires:  pkgconfig(libwacom)
 BuildRequires:  pkgconfig(accountsservice)
+BuildRequires:  pkgconfig(girepository-2.0)
 BuildRequires:  pkgconfig(gio-2.0)
 BuildRequires:  pkgconfig(gio-unix-2.0)
 BuildRequires:  pkgconfig(gee-0.8)
@@ -47,10 +49,11 @@ BuildRequires:  pkgconfig(ibus-1.0)
 BuildRequires:  pkgconfig(libcanberra)
 BuildRequires:  pkgconfig(libcanberra-gtk3)
 BuildRequires:  pkgconfig(libgnome-menu-3.0)
-BuildRequires:  pkgconfig(libpeas-gtk-1.0)
+BuildRequires:  pkgconfig(libpeas-2)
 BuildRequires:  pkgconfig(libpulse)
 BuildRequires:  pkgconfig(libwnck-3.0)
 BuildRequires:  pkgconfig(libxfce4windowing-0)
+BuildRequires:  pkgconfig(vapigen)
 # Mutter was replaced by magpie
 #BuildRequires:  pkgconfig(libmutter-12)
 BuildRequires:  pkgconfig(libmagpie-0)
@@ -230,15 +233,15 @@ install -pm 0644 %{SOURCE100} %{buildroot}%{_datadir}/glib-2.0/schemas/budgie-op
 %{_includedir}/budgie-settings-daemon-48/budgie-settings-daemon/gsd-enums.h
 %{_libdir}/pkgconfig/*.pc
 %{_libdir}/*.so
-%{_datadir}/vala/vapi/budgie-1.0.*
-%{_datadir}/vala/vapi/budgie-raven-plugin-1.0.deps
-%{_datadir}/vala/vapi/budgie-raven-plugin-1.0.vapi
+%{_datadir}/vala/vapi/budgie-2.0.*
+%{_datadir}/vala/vapi/budgie-raven-plugin-2.0.deps
+%{_datadir}/vala/vapi/budgie-raven-plugin-2.0.vapi
 
 %files -n %{girname}
-%{_libdir}/girepository-1.0/BudgieRaven-1.0.typelib
-%{_libdir}/girepository-1.0/Budgie-1.0.typelib
-%{_datadir}/gir-1.0/Budgie-1.0.gir
-%{_datadir}/gir-1.0/BudgieRaven-1.0.gir
+%{_libdir}/girepository-1.0/BudgieRaven-2.0.typelib
+%{_libdir}/girepository-1.0/Budgie-2.0.typelib
+%{_datadir}/gir-1.0/Budgie-2.0.gir
+%{_datadir}/gir-1.0/BudgieRaven-2.0.gir
 
 %files docs
 %{_datadir}/gtk-doc/html/budgie-desktop/
