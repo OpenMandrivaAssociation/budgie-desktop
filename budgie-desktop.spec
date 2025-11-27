@@ -238,10 +238,10 @@ install -pm 0644 %{SOURCE100} %{buildroot}%{_datadir}/glib-2.0/schemas/budgie-op
 %{_datadir}/vala/vapi/budgie-raven-plugin-1.0.vapi
 
 %files -n %{girname}
-%{_libdir}/girepository-1.0/BudgieRaven-1.0.typelib
-%{_libdir}/girepository-1.0/Budgie-1.0.typelib
-%{_datadir}/gir-1.0/Budgie-1.0.gir
-%{_datadir}/gir-1.0/BudgieRaven-1.0.gir
+%{_libdir}/girepository-1.0/BudgieRaven-2.0.typelib
+%{_libdir}/girepository-1.0/Budgie-2.0.typelib
+%{_datadir}/gir-1.0/Budgie-2.0.gir
+%{_datadir}/gir-1.0/BudgieRaven-2.0.gir
 
 %files docs
 %{_datadir}/gtk-doc/html/budgie-desktop/
