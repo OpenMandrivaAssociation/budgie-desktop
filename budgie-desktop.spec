@@ -30,6 +30,7 @@ BuildRequires:  vala-devel
 BuildRequires:  zenity-gtk
 BuildRequires:  pkgconfig(alsa)
 BuildRequires:  gnome-settings-daemon-devel
+BuildRequires:  pkgconfig(harfbuzz-gobject)
 BuildRequires:  pkgconfig(libnotify)
 BuildRequires:  pkgconfig(libwacom)
 BuildRequires:  pkgconfig(accountsservice)
