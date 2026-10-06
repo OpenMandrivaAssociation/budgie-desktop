@@ -63,7 +63,7 @@ BuildRequires:  pkgconfig(polkit-gobject-1)
 BuildRequires:  pkgconfig(upower-glib)
 BuildRequires:  pkgconfig(uuid)
 BuildRequires:  egl-devel
-BuildRequires:  budgie-screensaver
+#BuildRequires:  budgie-screensaver
 BuildRequires:  budgie-desktop-view
 
 Requires:       %{girname} = %{EVRD}
@@ -73,7 +73,7 @@ Requires:       %{libbudgieprivate} = %{EVRD}
 
 Requires:       budgie-session
 Requires:       budgie-desktop-view
-Requires:       budgie-screensaver
+#Requires:       budgie-screensaver
 Requires:       budgie-control-center
 Requires:       budgie-backgrounds
 Requires:       gnome-bluetooth3.34
