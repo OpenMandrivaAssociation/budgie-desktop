@@ -20,6 +20,7 @@ Url:            https://solus-project.com/budgie/
 Source0:        https://github.com/BuddiesOfBudgie/budgie-desktop/releases/download/v%{version}/budgie-desktop-v%{version}.tar.xz
 # FIXME: move this to distro-release
 Source100:		budgie-openmandriva.gschema.override
+Patch0:       https://github.com/BuddiesOfBudgie/budgie-desktop/commit/1ca6fcf940bc306d59651deddf58f155b9feb983.patch
 
 BuildRequires:  git
 BuildRequires:  gtk-doc
