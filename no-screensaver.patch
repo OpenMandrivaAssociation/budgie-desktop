@@ -1,0 +1,141 @@
+diff -uraN budgie-desktop-v10.9.4/budgie-desktop-10.9.4/.github/workflows/build.yml omv-budgie-desktop-v10.9.4/budgie-desktop-10.9.4/.github/workflows/build.yml
+--- budgie-desktop-v10.9.4/budgie-desktop-10.9.4/.github/workflows/build.yml	2025-11-09 14:21:57.000000000 +0100
++++ omv-budgie-desktop-v10.9.4/budgie-desktop-10.9.4/.github/workflows/build.yml	2026-10-09 00:26:21.123077173 +0200
+@@ -36,7 +36,6 @@
+             'pkgconfig(uuid)' \
+             'pkgconfig(vapigen)' \
+             budgie-desktop-view \
+-            budgie-screensaver \
+             desktop-file-utils \
+             gcc \
+             gettext \
+diff -uraN budgie-desktop-v10.9.4/budgie-desktop-10.9.4/meson.build omv-budgie-desktop-v10.9.4/budgie-desktop-10.9.4/meson.build
+--- budgie-desktop-v10.9.4/budgie-desktop-10.9.4/meson.build	2025-11-09 14:21:57.000000000 +0100
++++ omv-budgie-desktop-v10.9.4/budgie-desktop-10.9.4/meson.build	2026-10-09 00:25:27.164801869 +0200
+@@ -22,14 +22,19 @@
+ ]
+ add_global_arguments(am_cflags, language: 'c')
+ 
+-budgie_screensaver  = find_program('budgie-screensaver', required: false)
++# A screensaver is optional: budgie-screensaver has been dropped upstream and
++# is no longer required either at configure time or at run time. Without a
++# running org.gnome.ScreenSaver provider, screen locking is simply unavailable.
++budgie_screensaver = find_program('budgie-screensaver', required: false)
+ gnome_screensaver = find_program('gnome-screensaver', required: false)
+ with_gnome_screensaver = get_option('with-gnome-screensaver')
+ if with_gnome_screensaver == false
+-    assert(budgie_screensaver.found(), 'Budgie Screensaver is a required separate component of Budgie Desktop. Please ensure budgie-screensaver is available at configure and run time. You can find this at https://github.com/BuddiesOfBudgie/budgie-screensaver')
++    if not budgie_screensaver.found()
++        warning('budgie-screensaver was not found. It is no longer required: Budgie will build and run without it, but screen locking will be unavailable unless another org.gnome.ScreenSaver provider is installed.')
++    endif
+     budgie_screensaver_vala_args = []
+ else
+-    assert(gnome_screensaver.found(), 'Either GNOME Screensaver or Budgie Screensaver is a required separate component of Budgie Desktop. Please ensure one of these is available at configure and run time.')
++    assert(gnome_screensaver.found(), 'GNOME Screensaver support was explicitly requested via -Dwith-gnome-screensaver=true, but gnome-screensaver was not found. Please ensure it is available at configure and run time.')
+     budgie_screensaver_vala_args = ['-D', 'HAVE_GNOME_SCREENSAVER']
+ endif
+ 
+diff -uraN budgie-desktop-v10.9.4/budgie-desktop-10.9.4/src/daemon/bsd/plugins/media-keys/gsd-media-keys-manager.c omv-budgie-desktop-v10.9.4/budgie-desktop-10.9.4/src/daemon/bsd/plugins/media-keys/gsd-media-keys-manager.c
+--- budgie-desktop-v10.9.4/budgie-desktop-10.9.4/src/daemon/bsd/plugins/media-keys/gsd-media-keys-manager.c	2025-11-09 14:21:57.000000000 +0100
++++ omv-budgie-desktop-v10.9.4/budgie-desktop-10.9.4/src/daemon/bsd/plugins/media-keys/gsd-media-keys-manager.c	2026-10-09 00:26:07.129043228 +0200
+@@ -1394,6 +1394,11 @@
+         if (priv->screen_saver_proxy == NULL)
+                 priv->screen_saver_proxy = gnome_settings_bus_get_screen_saver_proxy ();
+ 
++        if (priv->screen_saver_proxy == NULL) {
++                g_debug ("No screensaver provider is available, cannot lock screen");
++                return;
++        }
++
+         gsd_screen_saver_call_lock (priv->screen_saver_proxy,
+                                     priv->bus_cancellable,
+                                     (GAsyncReadyCallback) on_screen_locked,
+diff -uraN budgie-desktop-v10.9.4/budgie-desktop-10.9.4/src/daemon/bsd/plugins/power/gsd-power-manager.c omv-budgie-desktop-v10.9.4/budgie-desktop-10.9.4/src/daemon/bsd/plugins/power/gsd-power-manager.c
+--- budgie-desktop-v10.9.4/budgie-desktop-10.9.4/src/daemon/bsd/plugins/power/gsd-power-manager.c	2025-11-09 14:21:57.000000000 +0100
++++ omv-budgie-desktop-v10.9.4/budgie-desktop-10.9.4/src/daemon/bsd/plugins/power/gsd-power-manager.c	2026-10-09 00:26:19.674177197 +0200
+@@ -1508,6 +1508,9 @@
+ {
+         gboolean do_lock;
+ 
++        if (manager->screensaver_proxy == NULL)
++                return;
++
+         do_lock = g_settings_get_boolean (manager->settings_screensaver,
+                                           "lock-enabled");
+         if (!do_lock) {
+@@ -3052,8 +3055,11 @@
+ 
+         manager->screensaver_proxy = gnome_settings_bus_get_screen_saver_proxy ();
+ 
+-        g_signal_connect (manager->screensaver_proxy, "g-signal",
+-                          G_CALLBACK (screensaver_signal_cb), manager);
++        if (manager->screensaver_proxy != NULL)
++                g_signal_connect (manager->screensaver_proxy, "g-signal",
++                                  G_CALLBACK (screensaver_signal_cb), manager);
++        else
++                g_debug ("No screensaver provider is available, screensaver integration disabled");
+ 
+         manager->kbd_brightness_old = -1;
+         manager->kbd_brightness_pre_dim = -1;
+diff -uraN budgie-desktop-v10.9.4/budgie-desktop-10.9.4/src/dialogs/power/window.vala omv-budgie-desktop-v10.9.4/budgie-desktop-10.9.4/src/dialogs/power/window.vala
+--- budgie-desktop-v10.9.4/budgie-desktop-10.9.4/src/dialogs/power/window.vala	2025-11-09 14:21:57.000000000 +0100
++++ omv-budgie-desktop-v10.9.4/budgie-desktop-10.9.4/src/dialogs/power/window.vala	2026-10-09 00:25:50.919162200 +0200
+@@ -184,12 +184,13 @@
+ 			try {
+ 				screensaver = yield Bus.get_proxy(BusType.SESSION, "org.gnome.ScreenSaver", "/org/gnome/ScreenSaver");
+ 			} catch (Error e) {
++				// A screensaver is optional. Warn, but keep setting up the
++				// remaining proxies (logout/reboot/shutdown must still work).
+ #if HAVE_GNOME_SCREENSAVER
+ 				warning("Unable to connect to gnome-screensaver: %s", e.message);
+ #else
+ 				warning("Unable to connect to budgie-screensaver: %s", e.message);
+ #endif
+-				return;
+ 			}
+ 
+ 			try {
+@@ -301,7 +302,11 @@
+ 						screensaver = Bus.get_proxy_sync(BusType.SESSION, "org.gnome.ScreenSaver", "/org/gnome/ScreenSaver");
+ 					}
+ #endif
+-					screensaver.lock();
++					if (screensaver == null) {
++						warning("Cannot lock screen: no screensaver is available");
++					} else {
++						screensaver.lock();
++					}
+ 				} catch (Error e) {
+ 					warning("Cannot lock screen: %s", e.message);
+ #if HAVE_GNOME_SCREENSAVER
+diff -uraN budgie-desktop-v10.9.4/budgie-desktop-10.9.4/src/panel/applets/user-indicator/UserIndicatorWindow.vala omv-budgie-desktop-v10.9.4/budgie-desktop-10.9.4/src/panel/applets/user-indicator/UserIndicatorWindow.vala
+--- budgie-desktop-v10.9.4/budgie-desktop-10.9.4/src/panel/applets/user-indicator/UserIndicatorWindow.vala	2025-11-09 14:21:57.000000000 +0100
++++ omv-budgie-desktop-v10.9.4/budgie-desktop-10.9.4/src/panel/applets/user-indicator/UserIndicatorWindow.vala	2026-10-09 00:26:04.100252310 +0200
+@@ -69,12 +69,13 @@
+ 		try {
+ 			saver = yield Bus.get_proxy(BusType.SESSION, "org.gnome.ScreenSaver", "/org/gnome/ScreenSaver");
+ 		} catch (Error e) {
++			// A screensaver is optional. Warn, but keep setting up the
++			// remaining proxies (logout/reboot/shutdown must still work).
+ #if HAVE_GNOME_SCREENSAVER
+ 			warning(UNABLE_CONTACT + "gnome-screensaver: %s", e.message);
+ #else
+ 			warning(UNABLE_CONTACT + "budgie-screensaver: %s", e.message);
+ #endif
+-			return;
+ 		}
+ 
+ 		try {
+@@ -374,7 +375,11 @@
+ 					saver = Bus.get_proxy_sync(BusType.SESSION, "org.gnome.ScreenSaver", "/org/gnome/ScreenSaver");
+ 				}
+ #endif
+-				saver.lock();
++				if (saver == null) {
++					warning("Cannot lock screen: no screensaver is available");
++				} else {
++					saver.lock();
++				}
+ 			} catch (Error e) {
+ 				warning("Cannot lock screen: %s", e.message);
+ #if HAVE_GNOME_SCREENSAVER
