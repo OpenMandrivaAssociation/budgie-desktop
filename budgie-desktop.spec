@@ -17,7 +17,8 @@ Summary:        GTK3 Desktop Environment
 License:        GPL-2.0+ AND LGPL-2.1
 Group:          Graphical desktop/Budgie
 Url:            https://solus-project.com/budgie/
-Source0:        https://github.com/BuddiesOfBudgie/budgie-desktop/releases/download/v%{version}/budgie-desktop-v%{version}.tar.xz
+Source0:        budgie-desktop-10.9.4.tar.xz
+#Source0:        https://github.com/BuddiesOfBudgie/budgie-desktop/releases/download/v%{version}/budgie-desktop-v%{version}.tar.xz
 # FIXME: move this to distro-release
 Source100:		budgie-openmandriva.gschema.override
 
@@ -94,7 +95,7 @@ Recommends:     gnome-terminal
 Requires: glib2.0-common
 Requires: glib2
 Requires: gtk+3
-
+Obsoletes: budgie-screensaver
 Provides: budgie
 Provides: task-budgie
 Provides: task-budgie-desktop
