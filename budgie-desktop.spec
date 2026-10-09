@@ -95,7 +95,7 @@ Recommends:     gnome-terminal
 Requires: glib2.0-common
 Requires: glib2
 Requires: gtk+3
-
+Obsoletes: budgie-screensaver
 Provides: budgie
 Provides: task-budgie
 Provides: task-budgie-desktop
